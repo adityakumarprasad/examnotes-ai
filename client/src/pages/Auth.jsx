@@ -11,18 +11,25 @@ function Auth() {
   const dispatch = useDispatch()
 
   const handleGoogleAuth = async () => {
-
     try {
       const response = await signInWithPopup(auth, provider)
       const User = response.user
       const name = User.displayName
       const email = User.email
+
+      console.log("Firebase user:", { name, email }) // check if firebase works
+
       const result = await axios.post(serverUrl + "/api/auth/google", { name, email }, {
         withCredentials: true
       })
+
+      console.log("Server response:", result.data) // check server response
       dispatch(setUserData(result.data))
+
     } catch (error) {
-      console.log(error)
+      console.log("Status:", error.response?.status)
+      console.log("Error message from server:", error.response?.data)
+      console.log("Full error:", error)
     }
   }
   return (

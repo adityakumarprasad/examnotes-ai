@@ -9,12 +9,12 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: "notesai-6380d.firebaseapp.com",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
   projectId: "notesai-6380d",
   storageBucket: "notesai-6380d.firebasestorage.app",
   messagingSenderId: "822815780546",
-  appId: "1:822815780546:web:eb6fd9a6d8eb2c5773955b",
-  measurementId: "G-YXJJ9NLNLX"
+  appId: "1:822815780546:web:674a00d7839a487273955b",
+  measurementId: "G-HQGRTBC37G"
 };
 
 // Initialize Firebase
