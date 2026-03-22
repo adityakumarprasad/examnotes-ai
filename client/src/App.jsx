@@ -2,17 +2,22 @@ import React, { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Auth from './pages/Auth'
-export const serverUrl = "http://localhost:3000"
 import { getCurrentUser } from './services/api'
 import { useDispatch, useSelector } from 'react-redux'
+import History from './pages/History'
+import Notes from './pages/Notes'
+import Pricing from './pages/Pricing'
+import PaymentSuccess from './pages/PaymentSuccess'
+import PaymentFailed from './pages/PaymentFailed'
+export const serverUrl = "http://localhost:8000"
 
 function App() {
-
   const dispatch = useDispatch()
   useEffect(() => {
     getCurrentUser(dispatch)
   }, [dispatch])
 
+  const { userData } = useSelector((state) => state.user)
   return (
     <>
       <Routes>
